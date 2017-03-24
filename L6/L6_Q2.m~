@@ -1,0 +1,26 @@
+function [r, n, iter, rel_err] = thomas_fermi_fd(n0, nend, rend, alpha, ...
+						 N, tol, max_iter) 
+r = linspace(0, rend, N);
+n = (n0 - nend) * [N:-1:1] / N + nend;
+[n(1), n(end)]
+nn = n;
+while ~done
+  iter = iter + 1;
+  if iter > max_iter
+    disp('max iteration exceeded')
+    break
+  end
+  for i=2:N
+    % Gauss-Seidel
+    n(i) = (nn(i+1) + n(i-1)) / (h^2 * (nn(i) / r(i))^.5 + 2);
+    % Over-relaxation
+    n(i) = n(i) + alpha * (n(i) - nn(i));
+  end
+  rel_err = abs((n - nn)./n);
+  rel_err(isnan(rel_err)) = 0;
+  if all(rel_err < tol)
+    done = true;
+  end
+  nn = n;   
+end
+end
