@@ -1,0 +1,8 @@
+"vimrc:
+autocmd FileType octave setlocal keywordprg=urxvt\ -e\ info\ octave\ --vi-keys\ --index-search
+" Octave syntax
+augroup filetypedetect
+  au! BufRead,BufNewFile *.m,*.oct set filetype=octave
+  augroup END
+"autocmd FileType octave map <buffer> <f5> ggOpkg load all<esc>Gopause<esc>:w<cr>:!octave-cli -qf %<cr>ddggdd:w<cr>
+autocmd FileType octave map <buffer> <f5> Gopause<esc>:w<cr>:!octave-cli -qf %<cr>ggdd:w<cr>
