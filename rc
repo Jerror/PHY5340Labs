@@ -8,6 +8,9 @@ augroup filetypedetect
 autocmd FileType octave map <buffer> <f5> Gopause<esc>:w<cr>:!octave-cli -qf %<cr>ggdd:w<cr>
 
 #octaverc:
+edit mode sync
+edit home .
+EDITOR('vim > /dev/tty 2>&1 < /dev/tty %s')
 # Suppress div-by-zero warnings; they're disabled in MATLAB by default.
 warning("off","Octave:divide-by-zero")
 # default "fltk" may be broken if using nVidia drivers
