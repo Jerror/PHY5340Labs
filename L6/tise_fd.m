@@ -25,3 +25,5 @@ for i = [1:numret]  % normalize eigenfunctions
     end
     eigfuncs(i,:) = C * eigfuncs(i,:);
 end
+
+end
