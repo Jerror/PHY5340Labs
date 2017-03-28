@@ -1,5 +1,5 @@
 function [] = plot_eigs( x, V, eigE, eigfuncs )
-labels = cell(1, 4);
+labels = cell(1, numel(eigE)+1);
 plot(x, V(x)); hold on;
 labels{1} = ['V(x)'];
 for i = [1:numel(eigE)]

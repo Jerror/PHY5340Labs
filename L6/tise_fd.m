@@ -1,5 +1,6 @@
 function [eigE, eigfuncs, x] = tise_fd(V, x0, xend, N, Ne, numret)
 %finite differences for time-independent schroedinger equation
+%adapted from C16_3
 % assuming psi(x0) = 0 = psi(xend)
 m2_hsqr = 2 / 0.076199682;  % eV^-1 nm^-2
 

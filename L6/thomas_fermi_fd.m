@@ -1,4 +1,5 @@
 function [n, iter, rel_err] = thomas_fermi_fd(n, r, alpha, tol, max_iter)
+%adapted from C16_2
 N = numel(r);
 h = r(2) - r(1);
 nn = n;
